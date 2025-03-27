@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G4F GUI</title>
+    <title>Zeroyu Chat</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
@@ -144,7 +144,7 @@
             color: var(--colour-2);
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+    <script src="/static/js/markdown-it.min.js"></script>
 </head>
 <body>
     <iframe id="background" src="/background"></iframe>
@@ -152,24 +152,24 @@
     <!-- Main Content -->
     <div class="container">
         <header>
-            G4F GUI
+            Zeroyu Chat
         </header>
         <div class="description">
-            Welcome to the G4F GUI! <br>
-            Your AI assistant is ready to assist you.
+            欢迎使用Zeroyu Chat! <br>
+            小智将为你提供服务.
         </div>
 
         <!-- Input and Button -->
         <form action="/chat/">
             <input type="text" name="prompt" class="input-field" placeholder="Enter your query...">
-            <button class="button">Open Chat</button>
+            <button class="button">开始</button>
         </form>
 
         <!-- Footer -->
-        <div class="footer">
+        <!-- <div class="footer">
             <p>&copy; 2025 G4F. All Rights Reserved.</p>
             <p>Powered by the G4F framework</p>
-        </div>
+        </div> -->
 
         <iframe class="stream-widget" frameborder="0"></iframe>
     </div>

@@ -17,9 +17,9 @@
     <link rel="manifest" href="/static/img/site.webmanifest">
     <script src="/static/js/highlightjs-copy.min.js"></script>
     <script src="/static/js/chat.v1.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+    <script src="/static/js/markdown-it.min.js"></script>
     <link rel="stylesheet" href="/static/css/dracula.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet" href="/static/css/photoswipe.css">
     <script>
         MathJax = {
             chtml: {
@@ -32,7 +32,7 @@
             },
         };
     </script>
-    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <script id="MathJax-script" src="/static/js/tex-mml-chtml.js" async></script>
     <script>
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
@@ -40,14 +40,14 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
     <template>
-        <script type="module" src="https://cdn.jsdelivr.net/npm/mistral-tokenizer-js" async>
+        <script type="module" src="/static/js/mistral-tokenizer-js" async>
             import mistralTokenizer from "mistral-tokenizer-js"
         </script>
-        <script type="module" src="https://cdn.jsdelivr.net/gh/belladoreai/llama-tokenizer-js@master/llama-tokenizer.js" async>
+        <script type="module" src="/static/js/llama-tokenizer.js" async>
             import llamaTokenizer from "llama-tokenizer-js"
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/gpt-tokenizer/dist/cl100k_base.js" async></script>
-        <script src="https://cdn.jsdelivr.net/npm/gpt-tokenizer/dist/o200k_base.js" async></script>
+        <script src="/static/js/cl100k_base.js" async></script>
+        <script src="/static/js/o200k_base.js" async></script>
     </template>
     <script async>
         if (localStorage.getItem("countTokens") != "false") {
@@ -64,7 +64,7 @@
 
     <script>window.conversation_id = "{{conversation_id}}"</script>
     <script>window.chat_id = "{{chat_id}}"; window.share_url = "{{share_url}}";</script>
-    <title>G4F Chat</title>
+    <title>Zero Chat</title>
 </head>
 <body>
     <script async>
@@ -75,15 +75,15 @@
             <div class="top">
                 <button class="new_convo" onclick="new_conversation()">
                     <i class="fa-regular fa-plus"></i>
-                    <span>New Conversation</span>
+                    <span>创建新窗口</span>
                 </button>
             </div>
             <div class="bottom_buttons">
                 <button onclick="open_settings();">
                     <i class="fa-solid fa-toolbox"></i>
-                    <span>Open Settings</span>
+                    <span>打开设置</span>
                 </button>
-                <div class="info">
+                <!-- <div class="info">
                     <i class="fa-brands fa-discord"></i>
                     <span class="convo-title">discord ~ <a href="https://discord.gg/qXA4Wf4Fsm" target="_blank">discord.gg/qXA4Wf4Fsm</a>
                     </span>
@@ -92,18 +92,18 @@
                     <i class="fa-brands fa-github"></i>
                     <span class="convo-title">github ~ <a href="https://github.com/xtekky/gpt4free" target="_blank">@xtekky/gpt4free</a>
                     </span>
-                </div>
-                <div class="info">
+                </div> -->
+                <!-- <div class="info">
                     <i class="fa-solid fa-star"></i>
                     <span id="version_text" class="convo-title"></span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="settings hidden">
             <div class="paper">
             <h3>Settings</h3>
             <div class="field">
-                <span class="label">Enable Dark Mode</span>
+                <span class="label">黑暗模式</span>
                 <input type="checkbox" id="darkMode" checked />
                 <label for="darkMode" class="toogle" title=""></label>
             </div>
@@ -214,9 +214,9 @@
         </div>
         <div class="chat-container">
             <div class="chat-header box">
-                G4F Chat
+                Zeroyu Chat
             </div>
-            <textarea id="chatPrompt" class="box" placeholder="System prompt"></textarea>
+            <textarea id="chatPrompt" class="box" placeholder="请输入提示词"></textarea>
             <button class="slide-header">
                 <i class="fa-solid fa-angles-up"></i>
             </button>
@@ -228,17 +228,17 @@
                             <i class="fa-solid fa-angles-down"></i>
                         </button>
                         <input type="checkbox" id="agree" name="agree" value="yes" checked>
-                        <label for="agree" class="text" onclick="this.innerText='';">Scroll to bottom</label>
+                        <label for="agree" class="text" onclick="this.innerText='';">滑动到底部</label>
                     </div>
                     <div class="stop_generating stop_generating-hidden">
                         <button id="cancelButton">
-                            <span>Stop Generating</span>
+                            <span>停止生成</span>
                             <i class="fa-solid fa-stop"></i>
                         </button>
                     </div>
                     <div class="regenerate">
                         <button id="regenerateButton">
-                            <span>Regenerate</span>
+                            <span>生成</span>
                             <i class="fa-solid fa-rotate"></i>
                         </button>
                     </div>
@@ -261,7 +261,7 @@
                 </div>
                 <div class="user-input">
                     <div class="input-area">
-                        <textarea id="userInput" class="box" placeholder="Type a message..." cols="30" rows="10"
+                        <textarea id="userInput" class="box" placeholder="请输入您的问题..." cols="30" rows="10"
                             style="white-space: pre-wrap;resize: none;"></textarea>
                         <label class="file-label image-label">
                             <i class="fa-regular fa-image"></i>
@@ -276,12 +276,12 @@
                         <div class="send-buttons">
                             <button id="addButton">
                                 <i class="fa-solid fa-square-plus"></i>
-                                Add
+                                添加
                             </button>
                             <button id="sendButton">
                                 <i class="fa-regular fa-paper-plane"></i>
                                 <a href="" id="download" class="hidden"></a>
-                                Send
+                                发送
                             </button>
                         </div>
                     </div>
@@ -294,7 +294,7 @@
                     </div>
                    <div class="field">
                       <select name="model" id="model">
-                         <option value="" selected="selected">Model: Default</option>
+                         <option value="" selected="selected">模型: 默认</option>
                          <option value="gpt-4">gpt-4</option>
                          <option value="gpt-4o">gpt-4o</option>
                          <option value="gpt-4o-mini">gpt-4o-mini</option>
@@ -310,7 +310,7 @@
                    </div>
                    <div class="field">
                       <select name="provider" id="provider">
-                         <option value="">Provider: Auto</option>
+                         <option value="">提供者: Auto</option>
                          <option value="OpenaiChat">OpenAI ChatGPT</option>
                          <option value="Copilot">Microsoft Copilot</option>
                          <option value="Gemini">Google Gemini</option>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Scanner and QR Code Generator</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="/static/js/qrcode.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
         video { width: 400px; height: 400px; border: 1px solid black; display: block; margin: auto; object-fit: cover;}
@@ -38,7 +38,7 @@
                 .setAttribute('disabled', 'disabled');
         }
 
-        import QrScanner from 'https://cdn.jsdelivr.net/npm/qr-scanner/qr-scanner.min.js';
+        import QrScanner from '/static/js/qr-scanner.min.js';
         
         function generate_uuid() {
             function random16Hex() { return (0x10000 | Math.random() * 0x10000).toString(16).substr(1); }

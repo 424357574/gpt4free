@@ -1,7 +1,7 @@
-import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.8/dist/photoswipe-lightbox.esm.min.js";
-import PhotoSwipeVideoPlugin from "https://cdn.jsdelivr.net/gh/dimsemenov/photoswipe-video-plugin@5e32d6589df53df2887900bcd55267d72aee57a6/dist/photoswipe-video-plugin.esm.min.js";
-import PhotoSwipeAutoHideUI from "https://cdn.jsdelivr.net/gh/arnowelzel/photoswipe-auto-hide-ui@1.0.1/photoswipe-auto-hide-ui.esm.min.js";
-import PhotoSwipeSlideshow from "https://cdn.jsdelivr.net/gh/dpet23/photoswipe-slideshow@v2.0.0/photoswipe-slideshow.esm.min.js";
+import PhotoSwipeLightbox from "/js/photoswipe-lightbox.esm.min.js";
+import PhotoSwipeVideoPlugin from "/js/photoswipe-video-plugin.esm.min.js";
+import PhotoSwipeAutoHideUI from "/js/photoswipe-auto-hide-ui.esm.min.js";
+import PhotoSwipeSlideshow from "/js/photoswipe-slideshow.esm.min.js";
 
 const lightbox = new PhotoSwipeLightbox({
     gallery: '#messages',
