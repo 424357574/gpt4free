@@ -1315,7 +1315,7 @@ const new_conversation = async () => {
     window.chat_id = null;
     window.conversation_id = uuid();
     document.title = window.title || document.title;
-    document.querySelector(".chat-header").innerText = "New Conversation - G4F";
+    document.querySelector(".chat-header").innerText = "新的对话 - G4F";
 
     await clear_conversation();
     if (chatPrompt) {
